@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONREP</title>
+  <meta
+    name="description"
+    content="ONREP is the workout tracker built for serious gym-goers. Log your sets, follow your progress, and stay consistent."
+  >
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+</head>
+<body>
+  <main>
+    <section class="section section-hero reveal" id="top">
+      <div class="container">
+        <nav class="site-nav" aria-label="Primary">
+          <a class="brand" href="#top" aria-label="ONREP home">
+            <img src="assets/logo.svg" alt="ONREP">
+          </a>
+          <button class="button button-secondary" type="button" disabled aria-disabled="true">App Store</button>
+        </nav>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Training discipline, built into every session.</p>
+            <h1>Stay Motivated. Track Smarter. Hit Every PR.</h1>
+            <p class="hero-text">
+              ONREP is the workout tracker built for serious gym-goers. Log your sets, follow your progress, and stay consistent — all in one place.
+            </p>
+            <!-- TODO: Replace placeholder CTA href with the App Store launch URL. -->
+            <a class="button button-primary" href="#">Get Notified</a>
+          </div>
+
+          <div class="mockup-iphone" aria-hidden="true">
+            <div class="mockup-screen">
+              <span class="mockup-chip">Workout Log</span>
+              <strong>Chest + Triceps</strong>
+              <ul class="mockup-list">
+                <li>Incline Press 4 x 8</li>
+                <li>Dips 3 x 10</li>
+                <li>Rope Pushdown 3 x 12</li>
+              </ul>
+              <span class="mockup-metric">PR pace: +6%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-problem reveal" aria-labelledby="problem-heading">
+      <div class="container narrow">
+        <h2 id="problem-heading">
+          You show up. You put in the work. But without tracking, you're leaving gains on the table.
+        </h2>
+      </div>
+    </section>
+
+    <section class="section section-features reveal" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Core Features</p>
+          <h2 id="features-heading">Everything you need between warm-up and your next PR.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card feature-card reveal">
+            <h3>Workout Logging</h3>
+            <p>Track sets, reps, rest, and notes with a flow that stays quick inside the gym.</p>
+          </article>
+          <article class="card feature-card reveal">
+            <h3>Progress &amp; PRs</h3>
+            <p>Spot trends fast, see your best lifts clearly, and keep momentum visible week to week.</p>
+          </article>
+          <article class="card feature-card reveal">
+            <h3>Program Library</h3>
+            <p>Follow expert-built training plans without bouncing between notes apps and spreadsheets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-credibility reveal" aria-labelledby="credibility-heading">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Built for Consistency</p>
+          <h2 id="credibility-heading">A training system designed to feel serious from day one.</h2>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat card">
+            <strong>53</strong>
+            <span>Expert Programs</span>
+          </article>
+          <article class="stat card">
+            <strong>300+</strong>
+            <span>Exercises</span>
+          </article>
+          <article class="stat card">
+            <strong>AI</strong>
+            <span>Powered Coaching</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta reveal" aria-labelledby="cta-heading">
+      <div class="container cta-grid">
+        <div class="cta-copy">
+          <p class="eyebrow">Launch Soon</p>
+          <h2 id="cta-heading">Your next PR starts here.</h2>
+          <!-- TODO: Replace placeholder CTA href with the App Store launch URL. -->
+          <a class="button button-primary" href="#">App Store</a>
+        </div>
+
+        <div class="mockup-watch" aria-hidden="true">
+          <div class="mockup-watch-face">
+            <span class="watch-label">ONREP Watch</span>
+            <strong>Rest timer</strong>
+            <span class="watch-time">01:15</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section site-footer reveal">
+    <div class="container footer-row">
+      <a class="brand footer-brand" href="#top" aria-label="ONREP home">
+        <img src="assets/logo.svg" alt="ONREP">
+      </a>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+      </div>
+      <p class="footer-copy">© 2026 ONREP. All rights reserved.</p>
+      <!-- TODO: Confirm support inbox before launch. -->
+      <a class="footer-email" href="mailto:support@onrepapp.com">support@onrepapp.com</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      var cards = document.querySelectorAll('.feature-card');
+
+      cards.forEach(function (card, index) {
+        card.style.transitionDelay = String(index * 100) + 'ms';
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        reveals.forEach(function (element) {
+          element.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(function (element) {
+        observer.observe(element);
+      });
+    }());
+  </script>
+</body>
+</html>
