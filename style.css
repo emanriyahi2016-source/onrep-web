@@ -1,12 +1,10 @@
 :root {
   --bg: #0a0a0a;
   --surface: #1c1c1e;
-  --surface-alt: #121214;
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.74);
   --border: rgba(255, 255, 255, 0.1);
   --accent: #f7c600;
-  --accent-dark: #b48c00;
   --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
   --max-width: 1100px;
   --radius: 28px;
@@ -27,10 +25,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at top left, rgba(247, 198, 0, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(247, 198, 0, 0.09), transparent 24%),
-    linear-gradient(180deg, #050505 0%, var(--bg) 24%, #070707 100%);
+  background: var(--bg);
   color: var(--text);
   font-family:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -142,18 +137,7 @@ button:hover:not(:disabled),
   font-size: clamp(3.4rem, 8vw, 6.2rem);
 }
 
-.eyebrow {
-  margin: 0 0 20px;
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
 .hero-text,
-.section-heading p,
-.cta-copy p,
 .footer-copy,
 .footer-email {
   color: var(--muted);
@@ -171,7 +155,7 @@ button:hover:not(:disabled),
   margin-inline: auto;
   background:
     linear-gradient(150deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02)),
-    var(--surface-alt);
+    var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: var(--shadow);
 }
@@ -199,7 +183,6 @@ button:hover:not(:disabled),
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
   min-height: 100%;
   padding: 84px 28px 36px;
   border-radius: 30px;
@@ -208,36 +191,25 @@ button:hover:not(:disabled),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
 }
 
-.mockup-chip,
-.watch-label {
-  width: fit-content;
-  padding: 6px 12px;
+.mockup-screen-placeholder,
+.mockup-watch-face {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.mockup-placeholder-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px dashed rgba(247, 198, 0, 0.5);
   border-radius: 999px;
-  background: rgba(247, 198, 0, 0.14);
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.mockup-screen strong,
-.mockup-watch-face strong {
-  font-size: 1.9rem;
-  letter-spacing: -0.04em;
-}
-
-.mockup-list {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
-}
-
-.mockup-metric,
-.watch-time {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
 }
 
 .section-problem {
@@ -336,14 +308,9 @@ button:hover:not(:disabled),
 }
 
 .mockup-watch-face {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
   min-height: 284px;
   padding: 28px;
   border-radius: 36%;
-  text-align: center;
   background:
     radial-gradient(circle at top, rgba(247, 198, 0, 0.18), transparent 48%),
     rgba(255, 255, 255, 0.03);
